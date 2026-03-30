@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  body {
+    @apply bg-[#fdfdfd] text-slate-900 font-sans;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .medical-card {
+    @apply bg-medical-grey rounded-medical p-6 shadow-medical border border-slate-100;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-dark text-white font-medium py-2 px-6 rounded-medical transition-all duration-200 inline-flex items-center justify-center;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-orange hover:bg-orange-600 text-white font-medium py-2 px-6 rounded-medical transition-all duration-200 inline-flex items-center justify-center;
+  }
+
+  .btn-danger {
+    @apply bg-secondary-red hover:bg-red-600 text-white font-medium py-2 px-4 rounded-medical transition-all duration-200 inline-flex items-center justify-center;
+  }
+}

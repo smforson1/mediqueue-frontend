@@ -1,0 +1,113 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "username": "admin@mediqueue.com",
+      "email": "admin@mediqueue.com",
+      "password": "admin123",
+      "name": "Clinic Admin",
+      "role": "admin"
+    },
+    {
+      "id": "u2",
+      "username": "patient1",
+      "password": "password123",
+      "name": "John Doe",
+      "role": "patient",
+      "email": "john@example.com",
+      "phone": "123-456-7890"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "d1",
+      "name": "Dr. Sarah Smith",
+      "specialty": "General Physician",
+      "availability": [
+        {
+          "day": "Monday",
+          "slots": [
+            "09:00",
+            "10:00",
+            "11:00",
+            "14:00",
+            "15:00"
+          ]
+        },
+        {
+          "day": "Wednesday",
+          "slots": [
+            "09:00",
+            "10:00",
+            "11:00",
+            "14:00",
+            "15:00"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "Dr. James Wilson",
+      "specialty": "Pediatrics",
+      "availability": [
+        {
+          "day": "Tuesday",
+          "slots": [
+            "10:00",
+            "11:00",
+            "13:00",
+            "14:00"
+          ]
+        },
+        {
+          "day": "Thursday",
+          "slots": [
+            "10:00",
+            "11:00",
+            "13:00",
+            "14:00"
+          ]
+        }
+      ]
+    }
+  ],
+  "appointments": [
+    {
+      "id": "a1",
+      "patientId": "u2",
+      "doctorId": "d1",
+      "date": "2026-03-20",
+      "time": "09:00",
+      "status": "confirmed",
+      "reason": "Regular checkup",
+      "queuePosition": 1
+    },
+    {
+      "id": "a1773717966430",
+      "patientId": "u2",
+      "doctorId": "d1",
+      "date": "2026-03-23",
+      "time": "10:00",
+      "reason": "Verification check",
+      "status": "confirmed",
+      "queuePosition": 1
+    }
+  ],
+  "notifications": [
+    {
+      "id": "n1",
+      "userId": "u2",
+      "message": "Your appointment with Dr. Sarah Smith is confirmed.",
+      "read": false,
+      "timestamp": "2026-03-17T10:00:00Z"
+    },
+    {
+      "id": "n1773717966430",
+      "userId": "u2",
+      "message": "Appointment confirmed with Dr. Sarah Smith on 2026-03-23 at 10:00. Queue #1",
+      "read": false,
+      "timestamp": "2026-03-17T03:26:06.430Z"
+    }
+  ]
+}
