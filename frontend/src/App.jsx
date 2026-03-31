@@ -18,8 +18,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import CheckEmail from './pages/CheckEmail';
 import ResetPassword from './pages/ResetPassword';
 
-// Layouts
-import PatientLayout from './components/layout/PatientLayout';
+import AdminLayout from './components/layout/AdminLayout';
 
 // Components
 import Navbar from './components/common/Navbar';
@@ -48,7 +47,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col bg-white">
-        {/* Only show Navbar if not logged in (since Dashboards have sidebars now) */}
+        {/* Only show Navbar if not logged in (Dashboards have their own layouts) */}
         {!user && <Navbar user={user} onLogout={handleLogout} />}
         
         <main className="flex-grow">
@@ -68,28 +67,14 @@ function App() {
               <Route path="/queue" element={<QueueStatus />} />
             </Route>
             
-            {/* Admin specific */}
-            <Route 
-              path="/admin" 
-              element={user?.role === 'admin' ? <AdminDashboard onLogout={handleLogout} /> : <Navigate to="/dashboard" />} 
-            />
-            <Route 
-              path="/admin/queue" 
-              element={user?.role === 'admin' ? <AdminQueueView onLogout={handleLogout} /> : <Navigate to="/dashboard" />} 
-            />
-            <Route 
-              path="/admin/schedules" 
-              element={user?.role === 'admin' ? <AdminSchedules onLogout={handleLogout} /> : <Navigate to="/dashboard" />} 
-            />
-            <Route 
-              path="/admin/patients" 
-              element={user?.role === 'admin' ? <AdminPatients onLogout={handleLogout} /> : <Navigate to="/dashboard" />} 
-            />
-            {/* Keeping doctors route just in case */}
-            <Route 
-              path="/admin/doctors" 
-              element={user?.role === 'admin' ? <DoctorManagement /> : <Navigate to="/dashboard" />} 
-            />
+            {/* Admin specific with shared Layout */}
+            <Route element={user?.role === 'admin' ? <AdminLayout user={user} onLogout={handleLogout} /> : <Navigate to="/login" />}>
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/admin/queue" element={<AdminQueueView />} />
+              <Route path="/admin/schedules" element={<AdminSchedules />} />
+              <Route path="/admin/patients" element={<AdminPatients />} />
+              <Route path="/admin/doctors" element={<DoctorManagement />} />
+            </Route>
           </Routes>
         </main>
       </div>
