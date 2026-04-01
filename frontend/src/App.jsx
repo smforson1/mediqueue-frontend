@@ -19,6 +19,7 @@ import CheckEmail from './pages/CheckEmail';
 import ResetPassword from './pages/ResetPassword';
 
 import AdminLayout from './components/layout/AdminLayout';
+import PatientLayout from './components/layout/PatientLayout';
 
 // Components
 import Navbar from './components/common/Navbar';
