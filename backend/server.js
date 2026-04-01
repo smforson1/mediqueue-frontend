@@ -454,7 +454,7 @@ app.get('/api/notifications', async (req, res) => {
 app.get('/api/users/patients', async (req, res) => {
   const { data, error } = await supabase
     .from('users')
-    .select('id, name, email, phone, created_at')
+    .select('id, name, email:username, phone, created_at')
     .eq('role', 'patient');
     
   if (error) return res.status(500).json({ error: error.message });
